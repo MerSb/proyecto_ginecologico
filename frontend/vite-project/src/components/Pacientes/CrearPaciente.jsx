@@ -5,6 +5,20 @@ const CrearPaciente = () => {
   const [nombre, setNombre] = useState('');
   const [apellido, setApellido] = useState('');
   const [edad, setEdad] = useState('');
+  const [dni, setDni] = useState('');
+  const [telefono, setTelefono] = useState ('');
+  const [obraSocial, setObraSocial] = useState('');
+  const [genero, setGenero] = useState('');
+  const [fechaUltimaMenstruacion, setFechaUltimaMenstruacion] = useState('');
+  const [gestando, setGestando] = useState(false);
+  const [trimestreGestacion, setTrimestreGestacion] = useState('');
+  const [hijos, setHijos] = useState(0);
+  const [partos, setPartos] = useState(0);
+  const [cesareas, setCesareas] = useState(0);
+  const [abortos, setAbortos] = useState(0);
+  const [papanicolauAno, setPapanicolauAno] = useState('');
+  const [alergicaMedicamento, setAlergicaMedicamento] = useState(false);
+  const [notas, setNotas] = useState('');
   const [direccion, setDireccion] = useState('');
   const [mensaje, setMensaje] = useState('');
 
@@ -15,6 +29,20 @@ const CrearPaciente = () => {
       nombre,
       apellido,
       edad,
+      dni,
+      telefono,
+      obraSocial,
+      genero,
+      fechaUltimaMenstruacion,
+      gestando,
+      trimestreGestacion,
+      hijos,
+      partos,
+      cesareas,
+      abortos,
+      papanicolauAno,
+      alergicaMedicamento,
+      notas,
       direccion
     };
 
@@ -25,6 +53,20 @@ const CrearPaciente = () => {
       setNombre('');
       setApellido('');
       setEdad('');
+      setDni('');
+      setTelefono('');
+      setObraSocial('');
+      setGenero('');
+      setFechaUltimaMenstruacion('');
+      setGestando(false);
+      setTrimestreGestacion('');
+      setHijos(0);
+      setPartos(0);
+      setCesareas(0);
+      setAbortos(0);
+      setPapanicolauAno('');
+      setAlergicaMedicamento(false);
+      setNotas('');
       setDireccion('');
     } catch (error) {
       setMensaje('Error al crear el paciente: ' + error.message);
@@ -42,7 +84,7 @@ const CrearPaciente = () => {
             value={nombre}
             onChange={(e) => setNombre(e.target.value)}
             required
-            className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md"
           />
         </div>
         <div>
@@ -52,7 +94,7 @@ const CrearPaciente = () => {
             value={apellido}
             onChange={(e) => setApellido(e.target.value)}
             required
-            className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md"
           />
         </div>
         <div>
@@ -62,17 +104,155 @@ const CrearPaciente = () => {
             value={edad}
             onChange={(e) => setEdad(e.target.value)}
             required
-            className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md"
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700">Dirección:</label>
+          <label className="block text-sm font-medium text-gray-700">DNI:</label>
+          <input
+            type="text"
+            value={dni}
+            onChange={(e) => setDni(e.target.value)}
+            required
+            className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md"
+          />
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-gray-700">Telefono:</label>
+          <input
+            type="text"
+            value={telefono}
+            onChange={(e) => setTelefono(e.target.value)}
+            required
+            className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md"
+          />
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-gray-700">Direccion:</label>
           <input
             type="text"
             value={direccion}
             onChange={(e) => setDireccion(e.target.value)}
             required
-            className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md"
+          />
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-gray-700">Obra Social:</label>
+          <input
+            type="text"
+            value={obraSocial}
+            onChange={(e) => setObraSocial(e.target.value)}
+            className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md"
+          />
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-gray-700">Género:</label>
+          <select
+            value={genero}
+            onChange={(e) => setGenero(e.target.value)}
+            required
+            className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md"
+          >
+            <option value="">Selecciona una opción</option>
+            <option value="Femenino">Femenino</option>
+            <option value="Masculino">Masculino</option>
+            <option value="Otro">Otro</option>
+          </select>
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-gray-700">Fecha de Última Menstruación:</label>
+          <input
+            type="date"
+            value={fechaUltimaMenstruacion}
+            onChange={(e) => setFechaUltimaMenstruacion(e.target.value)}
+            className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md"
+          />
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-gray-700">¿Está gestando?</label>
+          <input
+            type="checkbox"
+            checked={gestando}
+            onChange={(e) => setGestando(e.target.checked)}
+            className="mt-1 block"
+          />
+        </div>
+        {gestando && (
+          <div>
+            <label className="block text-sm font-medium text-gray-700">Trimestre de Gestación:</label>
+            <select
+              value={trimestreGestacion}
+              onChange={(e) => setTrimestreGestacion(e.target.value)}
+              className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md"
+            >
+              <option value="">Selecciona una opción</option>
+              <option value="Primero">Primero</option>
+              <option value="Segundo">Segundo</option>
+              <option value="Tercero">Tercero</option>
+            </select>
+          </div>
+        )}
+        <div>
+          <label className="block text-sm font-medium text-gray-700">Hijos:</label>
+          <input
+            type="number"
+            value={hijos}
+            onChange={(e) => setHijos(e.target.value)}
+            className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md"
+          />
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-gray-700">Partos:</label>
+          <input
+            type="number"
+            value={partos}
+            onChange={(e) => setPartos(e.target.value)}
+            className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md"
+          />
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-gray-700">Cesáreas:</label>
+          <input
+            type="number"
+            value={cesareas}
+            onChange={(e) => setCesareas(e.target.value)}
+            className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md"
+          />
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-gray-700">Abortos:</label>
+          <input
+            type="number"
+            value={abortos}
+            onChange={(e) => setAbortos(e.target.value)}
+            className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md"
+          />
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-gray-700">Año del último Papanicolau:</label>
+          <input
+            type="number"
+            value={papanicolauAno}
+            onChange={(e) => setPapanicolauAno(e.target.value)}
+            className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md"
+          />
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-gray-700">¿Es alérgica a algún medicamento?</label>
+          <input
+            type="checkbox"
+            checked={alergicaMedicamento}
+            onChange={(e) => setAlergicaMedicamento(e.target.checked)}
+            className="mt-1 block"
+          />
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-gray-700">Notas:</label>
+          <textarea
+            value={notas}
+            onChange={(e) => setNotas(e.target.value)}
+            className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md"
           />
         </div>
         <button
@@ -92,5 +272,6 @@ const CrearPaciente = () => {
 };
 
 export default CrearPaciente;
+
 
 
