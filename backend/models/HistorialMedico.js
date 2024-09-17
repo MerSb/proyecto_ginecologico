@@ -1,38 +1,28 @@
 const { DataTypes } = require('sequelize');
-const sequelize = require('../database/config'); // Conexión a la base de datos
+const sequelize = require('../database/config'); // Asegúrate de tener la configuración correcta de la conexión
 
-// Definir el modelo HistorialMedico
 const HistorialMedico = sequelize.define('HistorialMedico', {
-  id: {
-    type: DataTypes.INTEGER,
-    autoIncrement: true,
-    primaryKey: true,
-  },
   pacienteId: {
     type: DataTypes.INTEGER,
     allowNull: false,
-    references: {
-      model: 'Pacientes', // Asegúrate que el nombre de la tabla sea el correcto
-      key: 'id',
-    },
   },
   fecha: {
-    type: DataTypes.DATEONLY,
+    type: DataTypes.DATE,
     allowNull: false,
   },
   descripcion: {
-    type: DataTypes.TEXT,
+    type: DataTypes.STRING,
     allowNull: false,
   },
   tratamiento: {
     type: DataTypes.STRING,
+    allowNull: false,
   },
   notas: {
     type: DataTypes.TEXT,
-  },
+  }
 }, {
-  timestamps: true, // Agregar createdAt y updatedAt
-  tableName: 'historiales_medicos',
+  tableName: 'historiales_medicos' // Asegúrate de que el nombre de la tabla coincida
 });
 
 module.exports = HistorialMedico;

@@ -14,19 +14,31 @@ const getAllPacientes = async (req, res) => {
 
 // Crear un nuevo paciente
 const createPaciente = async (req, res) => {
-  const { nombre, apellido, edad, telefono, direccion, email, fecha_nacimiento, genero, historial_medico } = req.body;
+  const { nombre, apellido, edad, email, dni, obra_social, genero, fecha_ultima_menstruacion, gestando, trimestre_gestacion, hijos, partos, cesareas, abortos, papanicolau_ano, alergica_medicamento, telefono, direccion, fecha_nacimiento, notas, historial_medico } = req.body;
   
   try {
     // Crear un nuevo paciente en la base de datos
     const nuevoPaciente = await Paciente.create({
       nombre,
       apellido,
+      dni,
+      email,
       edad,
+      obra_social,
+      genero,
+      fecha_ultima_menstruacion,
+      gestando,
+      trimestre_gestacion,
+      hijos,
+      partos,
+      cesareas,
+      abortos,
+      papanicolau_ano,
+      alergica_medicamento,
       telefono,
       direccion,
-      email,
       fecha_nacimiento,
-      genero,
+      notas,
       historial_medico,
     });
 
@@ -42,3 +54,4 @@ module.exports = {
   getAllPacientes,
   createPaciente,
 };
+

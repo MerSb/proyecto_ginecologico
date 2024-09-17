@@ -20,30 +20,52 @@ const Paciente = sequelize.define('Paciente', {
     type: DataTypes.INTEGER,
     allowNull: false,
   },
-  telefono: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  direccion: {
-    type: DataTypes.STRING,
-  },
-  email: {
+  dni: {
     type: DataTypes.STRING,
     allowNull: false,
     unique: true,
-    validate: {
-      isEmail: true,
-    },
   },
-  fecha_nacimiento: {
-    type: DataTypes.DATEONLY,
-    allowNull: false,
+  obra_social: {
+    type: DataTypes.STRING,
   },
   genero: {
     type: DataTypes.ENUM('Femenino', 'Masculino', 'Otro'),
     allowNull: false,
   },
-  historial_medico: {
+  fecha_ultima_menstruacion: {
+    type: DataTypes.DATEONLY,
+  },
+  gestando: {
+    type: DataTypes.BOOLEAN,
+  },
+  trimestre_gestacion: {
+    type: DataTypes.ENUM('Primero', 'Segundo', 'Tercero'),
+    allowNull: true,
+  },
+  hijos: {
+    type: DataTypes.INTEGER,
+    defaultValue: 0,
+  },
+  partos: {
+    type: DataTypes.INTEGER,
+    defaultValue: 0,
+  },
+  cesareas: {
+    type: DataTypes.INTEGER,
+    defaultValue: 0,
+  },
+  abortos: {
+    type: DataTypes.INTEGER,
+    defaultValue: 0,
+  },
+  papanicolau_ano: {
+    type: DataTypes.INTEGER,
+  },
+  alergica_medicamento: {
+    type: DataTypes.BOOLEAN,
+    defaultValue: false,
+  },
+  notas: {
     type: DataTypes.TEXT,
   },
 }, {
@@ -53,3 +75,4 @@ const Paciente = sequelize.define('Paciente', {
 
 // Exportar el modelo
 module.exports = Paciente;
+
