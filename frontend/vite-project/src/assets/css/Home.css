@@ -1,0 +1,116 @@
+/* Home.css */
+
+/* Global Styles */
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: #f3f4f6;
+  }
+  
+  /* Container Styles */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  /* Header Styles */
+  header {
+    background-color: #ffffff;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  header h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #3b3170;
+    margin-bottom: 0.5rem;
+  }
+  
+  header p {
+    font-size: 1.25rem;
+    color: #6b7280;
+  }
+  
+  /* Main Section Styles */
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4rem 0;
+    background: linear-gradient(to right, #fed7e2, #c4b5fd, #dbeafe);
+  }
+  
+  main h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 1.5rem;
+  }
+  
+  main p {
+    font-size: 1.125rem;
+    color: #4b5563;
+    line-height: 1.75rem;
+    max-width: 600px;
+    text-align: center;
+  }
+  
+  main button {
+    margin-top: 1.5rem;
+    padding: 0.75rem 2rem;
+    background-color: #6366f1;
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  main button:hover {
+    background-color: #4f46e5;
+  }
+  
+  /* Image Styling */
+  main img {
+    border-radius: 1rem;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Footer Styles */
+  footer {
+    background-color: #3b3170;
+    color: #ffffff;
+    padding: 1.5rem;
+    text-align: center;
+  }
+  
+  footer p {
+    font-size: 1rem;
+    margin: 0;
+  }
+  
+  /* Responsive Design */
+  @media (min-width: 1024px) {
+    main {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+  
+    main h2 {
+      font-size: 3rem;
+      text-align: left;
+    }
+  
+    main p {
+      text-align: left;
+    }
+  }
+  
